@@ -9,13 +9,19 @@ export default function BillingComponent() {
 
   /* Setup function - used when rendering page */
   useEffect(() => {
-    const fetchBalance = async () => {
-      let resp = await userService.getBalance();
-      let data = await resp.json();
-      setBalance(data.balance);
+    const fetchBillingData = async () => {
+      let [balance, address, debitCard] = await Promise.all([
+        userService.getBalance(),
+        userService.getAddress(),
+        userService.getDebitCard()
+      ]);
+
+      setBalance(balance);
+      setAddress(address);
+      setDebitCard(debitCard);
     }
 
-    fetchBalance();
+    fetchBillingData();
   }, []); /* empty array --> useEffect called only on initialization */
 
 

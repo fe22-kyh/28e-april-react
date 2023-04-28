@@ -31,8 +31,23 @@ const performRequest = async (url, method, body) => {
 
 async function getBalance() {
   let resp = await performRequest("http://127.0.0.1:4000/user/balance", "GET");
+  let data = await resp.json();
 
-  return resp;
+  return data.balance;
+}
+
+async function getDebitCard() {
+  let resp = await performRequest("http://127.0.0.1:4000/user/debitCard", "GET");
+  let data = await resp.json()
+
+  return data.debitCard;
+}
+
+async function getAddress() {
+  let resp = await performRequest("http://127.0.0.1:4000/user/address", "GET");
+  let data = await resp.json();
+
+  return data.address;
 }
 
 async function getHistory() {
@@ -56,5 +71,5 @@ function getUsername() {
 }
 
 
-const userService = { getBalance, getHistory, getUsername };
+const userService = { getBalance, getHistory, getUsername, getDebitCard, getAddress };
 export default userService;

@@ -1,6 +1,13 @@
 import jwt from 'jsonwebtoken';
 
-const jwtFilter = (request, response, next) => {
+/* simulate traffic noise 0-7s */
+const createRandomNoise = () => {
+  const noise = 500 + (Math.random() * 4000);
+  return new Promise(resolve => setTimeout(resolve, noise));
+}
+
+const jwtFilter = async (request, response, next) => {
+  await createRandomNoise();
   const authHeader = request.headers["authorization"];
 
   if (authHeader == undefined || !authHeader.includes("Bearer ")) {

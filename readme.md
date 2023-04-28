@@ -7,6 +7,7 @@
 ## Material
 - [React Use effect dependencies](https://react.dev/reference/react/useEffect#examples-dependencies)
 - [React blog 'bout dependencies (scrolla ner för visuell bild)](https://blog.bitsrc.io/understanding-dependencies-in-useeffect-7afd4df37c96)
+- [React fetch with performance in mind](https://www.developerway.com/posts/how-to-fetch-data-in-react)
 
 ## Övningar
 Under dagen utvecklare vi [kundvisionen](https://github.com/fe22-kyh/arbetsmetodik-examiniation) från arbetsmetodik del 2 med ramverket React. Vi använder då samma [data bibliotek](https://github.com/fe22-kyh/arbetsmetodik-examiniation/blob/main/db.js) som tidigare.

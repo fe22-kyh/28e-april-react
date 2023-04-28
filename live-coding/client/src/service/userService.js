@@ -5,13 +5,13 @@ const buildPostFetchOptions = (body) => ({
   body: JSON.stringify(body),
   headers: {
     "Content-Type": "application/json",
-    "Authorization": "Bearer " + sessionStorage.getItem("JWT_TOKEN")
+    "Authorization": "Bearer " + memoryService.getLocalValue("JWT_TOKEN")
   }
 });
 
 const buildGetFetchOptions = () => ({
   headers: {
-    "Authorization": "Bearer " + sessionStorage.getItem("JWT_TOKEN")
+    "Authorization": "Bearer " + memoryService.getLocalValue("JWT_TOKEN")
   }
 });
 

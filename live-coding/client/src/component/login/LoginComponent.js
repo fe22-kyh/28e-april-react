@@ -2,10 +2,12 @@ import { useState } from 'react';
 import CredentialComponent from './CredentialComponent.js';
 import authService from '../../service/authService.js';
 import memoryService from '../../service/memoryService.js';
+import { useNavigate } from 'react-router-dom';
 
 export default function LoginComponent () {
   const [credential, setCredential] = useState({username: '', password: ''});
   const [infoMessage, setInfoMessage] = useState('');
+  const navigate = useNavigate();
 
   const submitHandler = async (event) => {
     event.preventDefault();
@@ -19,6 +21,8 @@ export default function LoginComponent () {
       let data = await res.json();
       setInfoMessage("Successfully logged in!");
       memoryService.saveLocalValue("JWT_TOKEN", data.accessToken);
+
+      setTimeout(() => navigate("/profile"), 1000);
     }
   }
 
